@@ -1,2 +1,0 @@
-# afeto
-Blog Projeto Afeto

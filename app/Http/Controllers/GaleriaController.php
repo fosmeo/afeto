@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Galeria;
+use App\Footer;
+use File;
 
 class GaleriaController extends Controller
 {
+
+	function index(){
+		$galeria_imagens = Galeria::get();
+		$footer = Footer::get();
+    	return view('galeria', ['galerias' => $galeria_imagens, 'footers' => $footer]);
+	}
+
     function gerenciador(){
-    	return view('galeria.gerenciador_galeria');
+    	$galeria_imagens = Galeria::get();
+    	return view('galeria.gerenciador_galeria', ['galerias' => $galeria_imagens]);
     }
 
     function atualizar(){
@@ -16,17 +27,33 @@ class GaleriaController extends Controller
 
     function salvar(Request $request){
 
-    	echo "<pre>";
-    	var_dump($request);
-    	echo "</pre>";
+        $this -> validate($request,[
+            'galeria_imagem' => ['required']
+        ]);
 
-    	// $imagens = Galeria::create($request->all());
+    	$galeria_salvar = new Galeria();
+    	$galeria_salvar -> create($request -> all());
 
-     //    foreach ($request->photos as $photo) {
-            
-     //        $filename = $photo->store('photos');
+		if($request->hasFile('galeria_imagem')) // VERIFICA SE EXISTE FOTO E INSERE IMAGEM NO DISCO E NO BANCO DE DADOS
+		{
+			$extensao = $request -> galeria_imagem -> getClientOriginalExtension();
+			$nome_imagem = time().'.'.$extensao;
+			$request-> galeria_imagem -> storeAs('galeria_imagens/', $nome_imagem);
+			$temp = $request -> galeria_imagem -> getPathname();
+			$galeria_salvar = Galeria::where('galeria_imagem', 'like', $temp);
+			$galeria_salvar -> update(['galeria_imagem' => $nome_imagem]);
+		}
+		
+		$galeria_imagens = Galeria::get();		
+		return view('galeria.gerenciador_galeria', ['galerias' => $galeria_imagens]);
 
-     //    }
-        // return 'Upload successful!';
+    }
+
+    function excluir_foto($id){
+        $galeria_excluir_foto = Galeria::findorfail($id);
+        $galeria_excluir_foto -> delete();
+        File::delete(storage_path('app/public').'/galeria_imagens/'.$galeria_excluir_foto -> galeria_imagem);        
+        \Session::flash('flashmsg', 'Foto Removida com Sucesso');
+        return redirect() -> route('formulario_galeria_gerenciador');
     }
 }

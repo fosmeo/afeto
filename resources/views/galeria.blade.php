@@ -10,22 +10,24 @@
         
         <br><br>
 
-        <div class="col-md-12">
-
             <div class="row">
-                <div class="col-md-12 padding-posts">
-                    @foreach($destaques as $destaque)
-                        <div id="destaque">
-                            <h3><strong>{{$destaque -> destaque_titulo}}</strong></h3>
-                            <br>
-                            <p>{!! nl2br($destaque -> destaque_texto) !!}</p>
+                <div class="col-md-12" id="destaque">
+                    
+                    <h3 class="text-center">Galeria de Fotos</h3>
+                    <br><br>
+
+                    @foreach($galerias as $galeria)
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                    <img class="" style="min-height:300px;" src="{{ asset('storage/galeria_imagens/'.$galeria -> galeria_imagem) }}" alt="">
+                                    <div class="caption">
+                                        <p>{{$galeria -> galeria_descricao}}</p>
+                                    </div>
+                            </div>
                         </div>
-                        
                     @endforeach
                 </div>
             </div>
-        </div>
-
 
     </div>
 

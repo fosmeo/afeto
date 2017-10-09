@@ -50,7 +50,7 @@
                                         
                                         {!! Form::open(['method' => 'DELETE' , 'url' => 'blog/'.$post -> id, 'style' => 'display:inline', 'onsubmit' => 'return confirm("Tem certeza que deseja excluir?")']) !!}
 
-                                            <button type="submit" href="{{ $post->id }}/excluir" class="btn btn-danger" value="excluir">Excluir</button>
+                                            <button type="submit" class="btn btn-danger" value="excluir">Excluir</button>
 
                                         {!!Form::close()!!}
                                     </td>

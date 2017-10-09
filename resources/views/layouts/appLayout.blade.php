@@ -43,6 +43,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">Página Inicial</a>
                     <a class="navbar-brand" href="{{ url('simplepage/main') }}">Saiba Mais Sobre o Projeto</a>
+                    <a class="navbar-brand" href="{{ url('galeria') }}">Galeria de fotos</a>
 
                 </div>
 

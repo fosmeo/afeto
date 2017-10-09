@@ -10,4 +10,8 @@ class Galeria extends Model
     	'galeria_descricao', 
     	'galeria_imagem',
     ];
+    
+    protected $hidden = [
+		'remember_token'
+    ];
 }

@@ -113,7 +113,7 @@
     </div>
 
     <div style="text-align: center;padding:30px 0px 30px 0px"">
-        <a style="color:#337ab7;" href="{{ url('/') }}">Voltar para o Início</a>
+        <a style="color:#337ab7;" href="{{ url('/') }}">Voltar para a Página Inicial</a>
     </div>
 
     @section('footer')

@@ -22,6 +22,7 @@ Route::get('simplepage/{id}', 'HomeController@simplepage')->name('simplepage');
 Route::post('{id}', 'CommentsController@salvar')->name('salvar_comments');
 Route::get('{from}/recalcular_comments', 'HomeController@recalcular') -> name ('recalcular');
 
+Route::get('galeria', 'GaleriaController@index') -> name ('galeria');
 
 Route::group(['prefix' => 'pessoas'], function(){
 	Route::get('lista_pessoas', 'PessoasController@lista') -> name ('lista_pessoas');
@@ -46,6 +47,7 @@ Route::group(['prefix' => 'galeria'], function(){
 	Route::get('formulario_galeria', 'GaleriaController@gerenciador') -> name ('formulario_galeria_gerenciador');
 	Route::patch('{id}', 'GaleriaController@atualizar') -> name ('formulario_galeria_atualizar');
 	Route::post('salvar_galeria', 'GaleriaController@salvar') -> name ('salvar_galeria');
+	Route::get('{id}/excluir_galeria', 'GaleriaController@excluir_foto') -> name ('excluir_galeria');
 
 });
 

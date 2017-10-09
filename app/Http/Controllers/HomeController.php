@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Posts;
 use App\Comments;
+use App\Principal;
+use App\Destaque;
+use App\Footer;
 use DB;
 use Illuminate\Http\Request;
 
@@ -11,20 +14,26 @@ class HomeController extends Controller
 
     public function index()
     {    
+        $principal = Principal::get();
+        $footer = Footer::get();
         $posts = Posts::orderBy('id', 'DESC') -> paginate(5);
         $comments = Comments::orderBy('posts_id') -> get();
         $maiscomentados = DB::select("SELECT comments.posts_id, posts.posts_titulo, COUNT(posts_id) as contador FROM comments INNER JOIN posts ON posts.id = comments.posts_id  GROUP BY posts_id order by contador DESC LIMIT 5;");
         ;
-        return view('welcome', ['posts' => $posts, 'comments' => $comments, 'maiscomentados' => $maiscomentados]);
+        return view('welcome', ['footers' => $footer, 'principals' => $principal, 'posts' => $posts, 'comments' => $comments, 'maiscomentados' => $maiscomentados]);
 
     }
 
     public function simplepage($id)
     {
-        $posts = Posts::where('id', 'like', $id) -> get();
-        $comments = Comments::where('posts_id', 'like', $id) -> get();
-        
-        return view ('simplepage' , ['posts' => $posts , 'comments' => $comments]);
+        if ($id == "main"){  
+            $destaque = Destaque::get();
+            return view ('simplepage' , ['destaques' => $destaque);
+        }else{
+            $posts = Posts::where('id', 'like', $id) -> get();
+            $comments = Comments::where('posts_id', 'like', $id) -> get();
+            return view ('simplepage' , ['posts' => $posts , 'comments' => $comments]);
+        }
     }
 
 

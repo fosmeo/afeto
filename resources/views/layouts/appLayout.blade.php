@@ -47,9 +47,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        Página Inicial
-                    </a>
+                    <a class="navbar-brand" href="{{ url('/') }}">Página Inicial</a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -57,6 +56,7 @@
                     <ul class="nav navbar-nav">
                         @if (!Auth::guest())
                             <a class="navbar-brand" href="{{ route('gerenciador') }}">Gerenciador</a>
+                            <a class="navbar-brand" href="{{ url('simplepage/main') }}">Saiba Mais Sobre o Projeto</a>
                         @endif
                     </ul>
 

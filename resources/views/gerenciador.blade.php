@@ -26,6 +26,9 @@
                             <li><a class="pull-left marginsH" href="{{ route('lista_pessoas') }}">Listar Pessoas</a></li>
                             <li><a class="pull-left marginsH" href="{{ route('formulario_pessoas') }}">Cadastrar Nova Pessoa</a></li>
                         <br>
+                            <li>SITE</li>
+                            <li><a class="pull-left marginsH" href="{{ route('formulario_site_gerenciador') }}">Gerenciar Conteúdo do Site</a></li>
+                        <br>
                             <li>ADMIN</li>
                             <li><a class="pull-left marginsH" href="{{ url('register') }}">Cadastrar Usuário do Sistema</a></li>
                             <li><a class="pull-left marginsH" href="{{ url('password/reset/') }}">Reset Password</a></li>

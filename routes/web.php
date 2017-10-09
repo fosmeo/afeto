@@ -34,6 +34,15 @@ Route::group(['prefix' => 'pessoas'], function(){
 	Route::get('{id}/excluir_foto_pessoas', 'PessoasController@excluir_foto') -> name ('excluir_foto_pessoas');
 });
 
+Route::group(['prefix' => 'site'], function(){
+	Route::get('formulario_site', 'SiteController@gerenciador') -> name ('formulario_site_gerenciador');
+	Route::patch('{area}/{id}', 'SiteController@atualizar') -> name ('formulario_site_atualizar');
+
+	Route::post('salvar_principal', 'SiteController@salvar_principal') -> name ('salvar_principal');
+	Route::post('salvar_destaque', 'SiteController@salvar_destaque') -> name ('salvar_destaque');
+	Route::post('salvar_footer', 'SiteController@salvar_footer') -> name ('salvar_footer');
+});
+
 Route::group(['prefix' => 'blog'], function(){
 	Route::get('lista_posts', 'BlogController@lista') -> name ('lista_posts');
 	Route::get('pesquisar_posts', 'BlogController@pesquisa') -> name ('pesquisar_posts');

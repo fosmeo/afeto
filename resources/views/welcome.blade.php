@@ -9,16 +9,15 @@
             <img src="imagens/banner_full.jpg">
         </div>
         
-        <div id="intro">
-            <h4><strong>Nosso Projeto 11111</strong></h4>
-            <p>O Projeto AFETO - Rael e os Pequenos Guereiros é um projeto social sem fins lucrativos, onde nosso propósito é ajudar as gestantes e os recém-nascidos através de doações de enxoval, fraldas, berços, carrinhos, etc... 
-            Também vamos orientar nossas mãezinhas desde alimentação necessária, higiene, necessidade do pré-natal e vacinações. Incentivá-lás a demonstrar seu amor e carinho pelo seu bebê através de carícias na barriga, conversas, contar histórias e ouvir boas músicas.
-            Para que o nosso Projeto tenha sucesso vamos contar com doações de amigos e pessoas que queiram nos ajudar com tudo que um recém-nascido necessita, podendo ser novos ou usados.
-            <br><br>
-            Contamos com vocês.
-            </p>
+        @foreach($principals as $principal)
+            @if(!empty($principal -> principal_titulo))
+                <div id="intro">
+                    <h4><strong>{{$principal -> principal_titulo }}</strong></h4>
+                    <p>{!! nl2br($principal -> principal_texto) !!}</p>
+                </div>
+            @endif
+        @endforeach
 
-        </div>
 
         <div class="col-md-9">
 
@@ -31,11 +30,11 @@
                         <table>
                             <tr>
                                 <td class="post-data">
-                                    {!! date_format($post -> created_at, 'd') !!}
+                                    {{ date_format($post -> created_at, 'd') }}
                                     <br>
-                                    {!! date_format($post -> created_at, 'M') !!}
+                                    {{ date_format($post -> created_at, 'M') }}
                                     <br>
-                                    {!! date_format($post -> created_at, 'Y') !!}
+                                    {{ date_format($post -> created_at, 'Y') }}
                                 </td>
                                 <td class="post-titulo">{{ $post -> posts_titulo }}</td>
                             </tr>
@@ -55,9 +54,9 @@
 
                         @endif
 
-                        <div class="col-md-12 shadow-texts">
+                        <div class="col-md-12 shadow-texts area-posts-texto">
                             
-                            <div>{!! nl2br($post -> posts_texto) !!}</div>
+                            <p>{!! nl2br($post -> posts_texto) !!}</p>
                             
                             <div class="panel-group" id="accordion">
                                 <h4 class="panel-title" style="text-align:center; margin-top:50px;margin-bottom:20px">
@@ -71,7 +70,7 @@
                                         }
                                     ?>
 
-                                    <a style="color:#337ab7;margin:20px 10px 0px 10px" data-toggle="collapse" data-parent="#accordion" href="#comment_show_{{$post -> id}}">Ver Comentários ({!! $qtde_comments !!})</a>
+                                    <a style="color:#337ab7;margin:20px 10px 0px 10px" data-toggle="collapse" data-parent="#accordion" href="#comment_show_{{$post -> id}}">Ver Comentários ({{ $qtde_comments }})</a>
 
                                     <a style="color:#337ab7;margin:20px 10px 0px 10px" data-toggle="collapse" data-parent="#accordion" href="#comment_action_{{$post -> id}}">Comentar</a>
 
@@ -86,7 +85,7 @@
                                             {{ csrf_field() }}
                                             {!! Form::hidden('posts_id', $post -> id) !!}
                                             {!! Form::input('text', 'comments_nome', null, ['class' => 'form-control', 'placeholder' => 'Seu nome']) !!}
-                                            {!! Form::textarea('comments_texto', null, ['style' => 'width:100%', 'rows' => '5', 'class' => 'form-control', '', 'placeholder' => 'Digite aqui o comentário']) !!}
+                                            {!! Form::textarea('comments_texto', null, ['style' => 'width:100%;', 'rows' => '5', 'class' => 'form-control', '', 'placeholder' => 'Digite aqui o comentário']) !!}
                                             <br>
                                             {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
                                         {!! Form::close() !!}
@@ -125,7 +124,7 @@
                     <br><br>
                     <ul>
                         @foreach($maiscomentados as $maiscomentado)
-                            <a href="{{url('simplepage/'.$maiscomentado -> posts_id)}}">{!! $maiscomentado -> posts_titulo . '(' . $maiscomentado -> contador .')'!!}</a><br><br>
+                            <a href="{{url('simplepage/'.$maiscomentado -> posts_id)}}">{{ $maiscomentado -> posts_titulo . '(' . $maiscomentado -> contador .')'}}</a><br><br>
                         @endforeach
                     </ul>
                 </div>
@@ -138,11 +137,22 @@
     </div>
 
     @section('footer')
-        <span> Rua Delfim Moreira / </span>
-        <span>Varginha - MG </span><br>
-        <span>Telefone: (35) 8702 - 0048</span>
-        <br>
-        <p>Email - lcsilveirarael@yahoo.com.br</p>
+
+        @foreach($footers as $footer)
+            @if(!empty($footer -> footer_linha1))
+                {{ $footer -> footer_linha1 }}<br>
+            @endif
+            @if(!empty($footer -> footer_linha2))
+                {{ $footer -> footer_linha2 }}<br>
+            @endif
+            @if(!empty($footer -> footer_linha3))
+                {{ $footer -> footer_linha3 }}<br>
+            @endif
+            @if(!empty($footer -> footer_linha4))
+                {{ $footer -> footer_linha4 }}
+            @endif
+        @endforeach
+
     @stop
 
 <!-- MODAL MENSAGENS     -->

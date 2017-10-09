@@ -28,7 +28,7 @@
                         <br>
                             <li>SITE</li>
                             <li><a class="pull-left marginsH" href="{{ route('formulario_site_gerenciador') }}">Gerenciar Conteúdo do Site</a></li>
-                            <li><a class="pull-left marginsH" href="{{ route('formulario_galeria_gerenciador') }}">Galeria de Fotos</a></li>
+                            <li><a class="pull-left marginsH" href="{{ route('formulario_galeria_gerenciador') }}">Gerenciar Galeria de Fotos</a></li>
                         <br>
                             <li>ADMIN</li>
                             <li><a class="pull-left marginsH" href="{{ url('register') }}">Cadastrar Usuário do Sistema</a></li>

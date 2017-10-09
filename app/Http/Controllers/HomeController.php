@@ -18,7 +18,7 @@ class HomeController extends Controller
         $footer = Footer::get();
         $posts = Posts::orderBy('id', 'DESC') -> paginate(5);
         $comments = Comments::orderBy('posts_id') -> get();
-        $maiscomentados = DB::select("SELECT comments.posts_id, posts.posts_titulo, COUNT(posts_id) as contador FROM comments INNER JOIN posts ON posts.id = comments.posts_id  GROUP BY posts_id order by contador DESC LIMIT 5;");
+        $maiscomentados = DB::select("SELECT comments.posts_id, posts.posts_titulo, COUNT(posts_id) as contador FROM comments INNER JOIN posts ON posts.id = comments.posts_id  GROUP BY posts_id order by contador DESC LIMIT 8;");
         ;
         return view('welcome', ['footers' => $footer, 'principals' => $principal, 'posts' => $posts, 'comments' => $comments, 'maiscomentados' => $maiscomentados]);
 

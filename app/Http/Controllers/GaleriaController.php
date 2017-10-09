@@ -11,13 +11,13 @@ class GaleriaController extends Controller
 {
 
 	function index(){
-		$galeria_imagens = Galeria::get();
+		$galeria_imagens = Galeria::orderBy('id', 'DESC') -> get();
 		$footer = Footer::get();
     	return view('galeria', ['galerias' => $galeria_imagens, 'footers' => $footer]);
 	}
 
     function gerenciador(){
-    	$galeria_imagens = Galeria::get();
+    	$galeria_imagens = Galeria::orderBy('id','DESC') -> get();
     	return view('galeria.gerenciador_galeria', ['galerias' => $galeria_imagens]);
     }
 

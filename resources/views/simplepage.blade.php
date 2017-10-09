@@ -5,11 +5,8 @@
     <div class="container">
 
         <div class="row shadow-banner">
-            <img src="/imagens/banner_full.jpg">
-
+            <a href="{{url('/')}}"><img src="/imagens/banner_full.jpg"></a>
         </div>
-        
-        <br><br>
 
         <div class="col-md-12">
 

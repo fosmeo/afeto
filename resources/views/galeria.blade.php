@@ -5,15 +5,14 @@
     <div class="container">
 
         <div class="row shadow-banner">
-            <img src="/imagens/banner_full.jpg">
+            <a href="{{url('/')}}"><img src="/imagens/banner_full.jpg"></a>
         </div>
-        
-        <br><br>
 
+        <div class="col-md-12 padding-posts">
             <div class="row">
                 <div class="col-md-12" id="destaque">
                     
-                    <h3 class="text-center">Galeria de Fotos</h3>
+                    <h3 class="text-center"><strong>Galeria de Fotos</strong></h3>
                     <br><br>
 
                     @foreach($galerias as $galeria)
@@ -21,14 +20,14 @@
                             <div class="thumbnail">
                                     <img class="" style="min-height:300px;" src="{{ asset('storage/galeria_imagens/'.$galeria -> galeria_imagem) }}" alt="">
                                     <div class="caption">
-                                        <p>{{$galeria -> galeria_descricao}}</p>
+                                        <p class="galeria-descricao">{{$galeria -> galeria_descricao}}</p>
                                     </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
-
+        </div>
     </div>
 
     <div style="text-align: center;padding:30px 0px 30px 0px"">

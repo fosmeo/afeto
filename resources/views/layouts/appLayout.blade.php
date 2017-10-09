@@ -13,7 +13,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Projeto Afeto') }}</title>
+    {{-- <title>{{ config('app.name', 'Projeto Afeto') }}</title> --}}
+    <title>Projeto Afeto</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -28,38 +29,30 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
                 <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
                     </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">Página Inicial</a>
-                    <a class="navbar-brand" href="{{ url('simplepage/main') }}">Saiba Mais Sobre o Projeto</a>
-                    <a class="navbar-brand" href="{{ url('galeria') }}">Galeria de fotos</a>
-
+                    <a class="navbar-brand" href="{{ url('/') }}">Projeto Afeto</a>
                 </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
+                <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
+                        <li><a href="{{ url('simplepage/main') }}">Saiba Mais Sobre o Projeto</a></li>
+                        <li><a href="{{ url('galeria') }}">Galeria de fotos</a></li>
+
                         @if (!Auth::guest())
-                            <a class="navbar-brand" href="{{ route('gerenciador') }}">Gerenciador</a>
+                            <li><a href="{{ route('gerenciador') }}">Gerenciador</a></li>
                         @endif
                     </ul>
-
-                    <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
+                        {{--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> --}}
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                             {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                         @else
 

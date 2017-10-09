@@ -31,7 +31,9 @@
                             {{-- @endif --}}
 
                                 {!! Form::label('desc','Descrição da(s) Imagem(s):') !!}
-                                {!! Form::input('text', 'galeria_descricao', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Descrição']) !!}
+                                {!! Form::textarea('galeria_descricao', null, ['style' => 'width:100%', 'rows' => '5', 'class' => 'form-control', '', 'placeholder' => 'Descrição']) !!}
+
+                                {{-- {!! Form::textarea('text', 'galeria_descricao', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Descrição']) !!} --}}
 
                                 {!! Form::label('img','Imagem(s):') !!}
                                 {{ Form::file('galeria_imagem') }}
@@ -54,10 +56,10 @@
 
                             <a href="{{ $galeria->id }}/excluir_galeria" onclick="return confirm('Tem certeza que deseja excluir essa FOTO?')" value="excluir">Excluir</a>
 
-                            <img class="" src="{{ asset('storage/galeria_imagens/'.$galeria -> galeria_imagem) }}" alt="">
+                            <img class="" style="min-height:300px;" src="{{ asset('storage/galeria_imagens/'.$galeria -> galeria_imagem) }}" alt="">
                             
                             <div class="caption">
-                                <p>{{$galeria -> galeria_descricao}}<p>
+                                <p style="font-size: 12px">{{$galeria -> galeria_descricao}}<p>
                             </div>
 
                     </div>

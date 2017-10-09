@@ -37,10 +37,16 @@ Route::group(['prefix' => 'pessoas'], function(){
 Route::group(['prefix' => 'site'], function(){
 	Route::get('formulario_site', 'SiteController@gerenciador') -> name ('formulario_site_gerenciador');
 	Route::patch('{area}/{id}', 'SiteController@atualizar') -> name ('formulario_site_atualizar');
-
 	Route::post('salvar_principal', 'SiteController@salvar_principal') -> name ('salvar_principal');
 	Route::post('salvar_destaque', 'SiteController@salvar_destaque') -> name ('salvar_destaque');
 	Route::post('salvar_footer', 'SiteController@salvar_footer') -> name ('salvar_footer');
+});
+
+Route::group(['prefix' => 'galeria'], function(){
+	Route::get('formulario_galeria', 'GaleriaController@gerenciador') -> name ('formulario_galeria_gerenciador');
+	Route::patch('galeria/{id}', 'GaleriaController@atualizar') -> name ('formulario_galeria_atualizar');
+	Route::post('salvar_galeria', 'GaleriaController@salvar') -> name ('salvar_galeria');
+
 });
 
 Route::group(['prefix' => 'blog'], function(){

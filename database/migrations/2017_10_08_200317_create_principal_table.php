@@ -29,6 +29,6 @@ class CreatePrincipalTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('principal');
     }
 }

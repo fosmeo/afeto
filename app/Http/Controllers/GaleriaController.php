@@ -7,14 +7,26 @@ use Illuminate\Http\Request;
 class GaleriaController extends Controller
 {
     function gerenciador(){
-    	echo "ger";
+    	return view('galeria.gerenciador_galeria');
     }
 
     function atualizar(){
     	echo "updt";	
     }
 
-    function salvar(){
-    	echo "save";
+    function salvar(Request $request){
+
+    	echo "<pre>";
+    	var_dump($request);
+    	echo "</pre>";
+
+    	// $imagens = Galeria::create($request->all());
+
+     //    foreach ($request->photos as $photo) {
+            
+     //        $filename = $photo->store('photos');
+
+     //    }
+        // return 'Upload successful!';
     }
 }

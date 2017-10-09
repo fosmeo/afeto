@@ -44,7 +44,7 @@ Route::group(['prefix' => 'site'], function(){
 
 Route::group(['prefix' => 'galeria'], function(){
 	Route::get('formulario_galeria', 'GaleriaController@gerenciador') -> name ('formulario_galeria_gerenciador');
-	Route::patch('galeria/{id}', 'GaleriaController@atualizar') -> name ('formulario_galeria_atualizar');
+	Route::patch('{id}', 'GaleriaController@atualizar') -> name ('formulario_galeria_atualizar');
 	Route::post('salvar_galeria', 'GaleriaController@salvar') -> name ('salvar_galeria');
 
 });

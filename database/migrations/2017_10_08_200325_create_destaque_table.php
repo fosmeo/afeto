@@ -29,6 +29,6 @@ class CreateDestaqueTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('destaque');
     }
 }

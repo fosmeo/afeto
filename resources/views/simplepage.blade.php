@@ -117,11 +117,20 @@
     </div>
 
     @section('footer')
-            <span> Rua Delfim Moreira / </span>
-            <span>Varginha - MG </span><br>
-            <span>Telefone: (35) 8702 - 0048</span>
-            <br>
-            <p>Email - lcsilveirarael@yahoo.com.br</p>
+        @foreach($footers as $footer)
+            @if(!empty($footer -> footer_linha1))
+                {{ $footer -> footer_linha1 }}<br>
+            @endif
+            @if(!empty($footer -> footer_linha2))
+                {{ $footer -> footer_linha2 }}<br>
+            @endif
+            @if(!empty($footer -> footer_linha3))
+                {{ $footer -> footer_linha3 }}<br>
+            @endif
+            @if(!empty($footer -> footer_linha4))
+                {{ $footer -> footer_linha4 }}
+            @endif
+        @endforeach
     @stop
 
     <!-- MODAL MENSAGENS     -->

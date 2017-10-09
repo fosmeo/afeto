@@ -28,11 +28,13 @@ class HomeController extends Controller
     {
         if ($id == "main"){  
             $destaque = Destaque::get();
-            return view ('simplepage' , ['destaques' => $destaque);
+            $footer = Footer::get();
+            return view ('destaque' , ['destaques' => $destaque, 'footers' => $footer]);
         }else{
             $posts = Posts::where('id', 'like', $id) -> get();
             $comments = Comments::where('posts_id', 'like', $id) -> get();
-            return view ('simplepage' , ['posts' => $posts , 'comments' => $comments]);
+            $footer = Footer::get();
+            return view ('simplepage' , ['posts' => $posts , 'comments' => $comments, 'footers' => $footer]);
         }
     }
 

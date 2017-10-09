@@ -13,7 +13,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Projeto Afeto111') }}</title>
+    <title>{{ config('app.name', 'Projeto Afeto') }}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,12 +24,6 @@
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <style>
-
-
-
-    </style>
 
 </head>
 <body>
@@ -48,6 +42,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">Página Inicial</a>
+                    <a class="navbar-brand" href="{{ url('simplepage/main') }}">Saiba Mais Sobre o Projeto</a>
 
                 </div>
 
@@ -56,7 +51,6 @@
                     <ul class="nav navbar-nav">
                         @if (!Auth::guest())
                             <a class="navbar-brand" href="{{ route('gerenciador') }}">Gerenciador</a>
-                            <a class="navbar-brand" href="{{ url('simplepage/main') }}">Saiba Mais Sobre o Projeto</a>
                         @endif
                     </ul>
 

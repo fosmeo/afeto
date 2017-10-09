@@ -159,3 +159,15 @@ border-color: #7e1d6c;
     -moz-box-shadow: 5px 5px 4px #410449;
 
 }
+
+#destaque{
+    margin:10px 0px 0px 0px;
+    background-color: #fff;
+    text-align:justify;
+    text-justify: inter-word;
+    padding:20px;
+    box-shadow: 5px 5px 4px #410449;
+    -webkit-box-shadow: 5px 5px 4px #410449;
+    -moz-box-shadow: 5px 5px 4px #410449;
+
+}

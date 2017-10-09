@@ -72,10 +72,6 @@
 
                                 {!! Form::model($footers, ['url' => 'site/footer/'.$footers -> id , 'method' => 'PATCH', 'files' => false, 'class' => 'form-inline']) !!}
                             @endif
-                            
-                                <br>
-                                {{ $footers -> id }}
-                                <br>
                                 
                                 {!! Form::label('nome','Linha 1 do rodaṕé:') !!}
                                 {!! Form::input('text', 'footer_linha1', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Linha 1']) !!}

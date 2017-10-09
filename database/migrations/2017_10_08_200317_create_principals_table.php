@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrincipalTable extends Migration
+class CreatePrincipalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePrincipalTable extends Migration
      */
     public function up()
     {
-        Schema::create('principal', function (Blueprint $table) {
+        Schema::create('principals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('principal_titulo') -> nullable();
             $table->text('principal_texto') -> nullable();

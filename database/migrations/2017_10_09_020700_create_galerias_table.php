@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGaleriaTable extends Migration
+class CreateGaleriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGaleriaTable extends Migration
      */
     public function up()
     {
-        Schema::create('galeria', function (Blueprint $table) {
+        Schema::create('galerias', function (Blueprint $table) {
             $table->increments('id');
             $table->text('galeria_descricao') -> nullable();
             $table->string('galeria_imagem') -> nullable();

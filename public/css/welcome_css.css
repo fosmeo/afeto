@@ -201,15 +201,16 @@ border-color: #7e1d6c;
 
 }
 .principal-borda{
-    border:1px solid #ccc;
+    border:2px solid #a475ab;
     padding:10px;
     
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
 
-    box-shadow: 1px 1px 30px #410449;
-    -webkit-box-shadow: 1px 1px 30px #410449;
-    -moz-box-shadow: 1px 1px 30px #410449;
+    /*box-shadow: 1px 1px 40px #410449;*/
+    box-shadow: 1px 1px 40px #a475ab;
+    -webkit-box-shadow: 1px 1px 40px #a475ab;
+    -moz-box-shadow: 1px 1px 40px #a475ab;
 
 }

@@ -126,7 +126,7 @@
 
                         <div class="form-group marginsV col-md-12">
 
-                            {!! Form::label('data_parto','Data provável de Parto:') !!}
+                            {!! Form::label('data_parto','Data provável do Parto:') !!}
                             {!! Form::input('text', 'pessoas_data_parto', null, ['class' => 'form-control', '', 'placeholder' => 'Data provável de Parto']) !!}
                             <br><br>
                             {!! Form::label('tipo_parto','Tipo de Parto:') !!}                   

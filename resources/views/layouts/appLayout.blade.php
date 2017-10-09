@@ -44,6 +44,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('simplepage/main') }}">Saiba mais sobre o Projeto</a></li>
                         <li><a href="{{ url('galeria') }}">Galeria de fotos</a></li>
+                        <li><a href="{{ url('simplepage/colabore') }}">Colabore</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

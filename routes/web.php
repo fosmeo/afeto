@@ -16,13 +16,11 @@ Route::Auth();
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('gerenciador', 'HomeController@gerenciador')->name('gerenciador');
-
 Route::get('simplepage/{id}', 'HomeController@simplepage')->name('simplepage');
-
 Route::post('{id}', 'CommentsController@salvar')->name('salvar_comments');
 Route::get('{from}/recalcular_comments', 'HomeController@recalcular') -> name ('recalcular');
-
 Route::get('galeria', 'GaleriaController@index') -> name ('galeria');
+
 
 Route::group(['prefix' => 'pessoas'], function(){
 	Route::get('lista_pessoas', 'PessoasController@lista') -> name ('lista_pessoas');

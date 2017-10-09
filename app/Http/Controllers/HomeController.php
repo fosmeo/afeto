@@ -26,10 +26,15 @@ class HomeController extends Controller
 
     public function simplepage($id)
     {
-        if ($id == "main"){  
+        if ($id == "main"){
             $destaque = Destaque::get();
             $footer = Footer::get();
             return view ('destaque' , ['destaques' => $destaque, 'footers' => $footer]);
+
+        }elseif ($id == "colabore"){
+            $footer = Footer::get();
+            return view ('colabore', ['footers' => $footer]);
+
         }else{
             $posts = Posts::where('id', 'like', $id) -> get();
             $comments = Comments::where('posts_id', 'like', $id) -> get();

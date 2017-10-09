@@ -12,8 +12,12 @@
         @foreach($principals as $principal)
             @if(!empty($principal -> principal_titulo))
                 <div id="intro">
-                    <h4><strong>{{$principal -> principal_titulo }}</strong></h4>
-                    <p>{!! nl2br($principal -> principal_texto) !!}</p>
+                    <div class="principal-borda">
+                        <h4><strong>{{$principal -> principal_titulo }}</strong></h4>
+                        <p>{!! nl2br($principal -> principal_texto) !!}</p>
+                        <br>
+                        <a href="{{ url('simplepage/main') }}"><u>Saiba Mais</u></a>
+                    </div>
                 </div>
             @endif
         @endforeach

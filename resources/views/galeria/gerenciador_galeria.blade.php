@@ -7,7 +7,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2>Galeria de Fotos</h2>
-                    <p>Use o Ctrl ou o Shift para inserir mais de uma imagem</p>
                 </div>
 
                 <div class="panel-body">
@@ -52,7 +51,7 @@
 
             @foreach($galerias as $galeria)
                 <div class="col-md-4">
-                    <div class="thumbnail">
+                    <div class="thumbnail" style="margin:5px">
 
                             <a href="{{ $galeria->id }}/excluir_galeria" onclick="return confirm('Tem certeza que deseja excluir essa FOTO?')" value="excluir">Excluir</a>
 

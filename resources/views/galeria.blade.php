@@ -12,12 +12,12 @@
             <div class="row">
                 <div class="col-md-12" id="destaque">
                     
-                    <h3 class="text-center"><strong>Galeria de Fotos</strong></h3>
-                    <br><br>
+                    <h4 class="text-center"><strong>Galeria de Fotos</strong></h4>
+                    <br>
 
                     @foreach($galerias as $galeria)
                         <div class="col-md-4">
-                            <div class="thumbnail">
+                            <div class="thumbnail" style="margin:5px">
                                     <img class="" style="min-height:300px;" src="{{ asset('storage/galeria_imagens/'.$galeria -> galeria_imagem) }}" alt="">
                                     <div class="caption">
                                         <p class="galeria-descricao">{{$galeria -> galeria_descricao}}</p>

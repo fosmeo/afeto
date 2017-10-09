@@ -30,7 +30,7 @@
 <body>
     <div id="app">
 
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -42,14 +42,23 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('simplepage/main') }}">Saiba Mais Sobre o Projeto</a></li>
+                        <li><a href="{{ url('simplepage/main') }}">Saiba mais sobre o Projeto</a></li>
                         <li><a href="{{ url('galeria') }}">Galeria de fotos</a></li>
-
-                        @if (!Auth::guest())
-                            <li><a href="{{ route('gerenciador') }}">Gerenciador</a></li>
-                        @endif
                     </ul>
+
                     <ul class="nav navbar-nav navbar-right">
+                    
+                    <form class="navbar-form navbar-left">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Pesquisar no Site">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
                         {{--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> --}}
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -68,15 +77,19 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+                                        
+                                        <a href="{{ route('gerenciador') }}" target="_blank">Gerenciador</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
+
                                         </form>
                                     </li>
                                 </ul>
                             </li>
-                        @endif
+                        @endif                        
                     </ul>
+
                 </div>
             </div>
         </nav>

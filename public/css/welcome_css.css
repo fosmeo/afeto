@@ -6,6 +6,31 @@ html, body {
     font-weight: 300;
     margin: 0;
 }
+
+.navbar-default{
+    background-color:#4f1757;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color:#fff;
+}
+
+.navbar-default .navbar-nav .active > li > a {
+    color:#fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+    color:#f7bcf7;
+}
+
+.navbar-default .navbar-brand {
+    color:#fff;
+}
+
+.navbar-default .navbar-brand:hover{
+    color:#f7bcf7;
+}
+
 .galeria-descricao{
     font-size: 12px;
 }
@@ -160,6 +185,7 @@ border-color: #7e1d6c;
     box-shadow: 5px 5px 4px #410449;
     -webkit-box-shadow: 5px 5px 4px #410449;
     -moz-box-shadow: 5px 5px 4px #410449;
+    opacity:0.6;
 
 }
 
@@ -172,5 +198,18 @@ border-color: #7e1d6c;
     box-shadow: 5px 5px 4px #410449;
     -webkit-box-shadow: 5px 5px 4px #410449;
     -moz-box-shadow: 5px 5px 4px #410449;
+
+}
+.principal-borda{
+    border:1px solid #ccc;
+    padding:10px;
+    
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+
+    box-shadow: 1px 1px 30px #410449;
+    -webkit-box-shadow: 1px 1px 30px #410449;
+    -moz-box-shadow: 1px 1px 30px #410449;
 
 }

@@ -44,7 +44,7 @@ class GaleriaController extends Controller
 			$galeria_salvar -> update(['galeria_imagem' => $nome_imagem]);
 		}
 		
-		$galeria_imagens = Galeria::get();		
+		$galeria_imagens = Galeria::orderBy('id','DESC') -> get();		
 		return view('galeria.gerenciador_galeria', ['galerias' => $galeria_imagens]);
 
     }

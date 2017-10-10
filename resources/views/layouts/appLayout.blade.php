@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Tauri" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 
@@ -49,9 +49,10 @@
 
                     <ul class="nav navbar-nav navbar-right">
                     
-                    <form class="navbar-form navbar-left">
+                    <form class="navbar-form navbar-left" action="{{ url('blog/pesquisar_posts')}}" method="get">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Pesquisar no Site">
+                            <input type="text" name="pesquisa_post" class="form-control" placeholder="Título do Post">
+                            <input type="hidden" name="from" value="principal">
                             <div class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <i class="glyphicon glyphicon-search"></i>
@@ -100,6 +101,9 @@
     
     <div id="footer">
         @yield('footer')
+    </div>
+    <div id="poweredby">
+        <p><a href="http://fabricioyassuda.tempsite.ws/" target="_blank">Fabricio Yassuda - Soluções em Tecnologia</a></p>
     </div>
 
 

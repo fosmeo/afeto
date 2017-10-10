@@ -16,7 +16,7 @@ class HomeController extends Controller
     {    
         $principal = Principal::get();
         $footer = Footer::get();
-        $posts = Posts::orderBy('id', 'DESC') -> paginate(5);
+        $posts = Posts::orderBy('id', 'DESC') -> paginate(10);
         $comments = Comments::orderBy('posts_id') -> get();
         $maiscomentados = DB::select("SELECT comments.posts_id, posts.posts_titulo, COUNT(posts_id) as contador FROM comments INNER JOIN posts ON posts.id = comments.posts_id  GROUP BY posts_id order by contador DESC LIMIT 8;");
         ;

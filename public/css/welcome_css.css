@@ -176,6 +176,19 @@ border-color: #7e1d6c;
     border-top:10px solid #a475ab;
 
 }
+#poweredby{
+    width:100%;
+    color:#fff;
+    font-size: 14px;
+    padding:5px 0px 1px 0px;
+    text-align: center;
+    background-color: #5c5d5a;
+}
+
+#poweredby a{
+    font-family: Raleway;
+    color:#fff;
+}
 
 #intro{
     margin:10px 0px 0px 0px;
@@ -208,7 +221,7 @@ border-color: #7e1d6c;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
 
-    /*box-shadow: 1px 1px 40px #410449;*/
+    /*box-shadow: 1px 1px 40px #410449;
     box-shadow: 1px 1px 40px #a475ab;
     -webkit-box-shadow: 1px 1px 40px #a475ab;
     -moz-box-shadow: 1px 1px 40px #a475ab;

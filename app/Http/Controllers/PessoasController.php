@@ -22,7 +22,7 @@ class PessoasController extends Controller
 
 	function lista()
 	{
-		$pessoas = Pessoas::orderBy('pessoas_nome') -> paginate(5);
+		$pessoas = Pessoas::orderBy('pessoas_nome') -> paginate(50);
 		$total = Pessoas::orderBy('pessoas_nome') -> get() -> count();
 		return view('pessoas.listapessoas', ['pessoas' => $pessoas, 'total' => $total]);
 	}
@@ -31,7 +31,7 @@ class PessoasController extends Controller
 	{
 
 		$pessoas_nome = $request->input('pesquisa_nome');
-		$pessoas_pesquisar = Pessoas::where('pessoas_nome', 'like', '%'.$pessoas_nome.'%') ->orderBy('pessoas_nome') -> paginate(5);
+		$pessoas_pesquisar = Pessoas::where('pessoas_nome', 'like', '%'.$pessoas_nome.'%') ->orderBy('pessoas_nome') -> paginate(50);
 		$total = count($pessoas_pesquisar);
 		return view('pessoas.listapessoas', ['pessoas' => $pessoas_pesquisar, 'total' => $total]);
 	}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Posts;
 use App\Comments;
+use App\Footer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use File;
@@ -12,7 +13,7 @@ class BlogController extends Controller
 {
 	public function __construct()
     {
-		$this->middleware('auth');
+		// $this->middleware('auth');
     }
 
     function gerenciador(){
@@ -27,7 +28,7 @@ class BlogController extends Controller
 
     function lista()
     {
-        $posts = Posts::orderBy('id' , 'DESC') -> paginate(5) ;
+        $posts = Posts::orderBy('id' , 'DESC') -> paginate(50) ;
         $total = Posts::orderBy('id') -> count();
         return view('blog.listaposts', ['posts' => $posts, 'total' => $total]);
     }    
@@ -62,14 +63,21 @@ class BlogController extends Controller
     function pesquisa(Request $request)
     {
         $posts_input = $request->input('pesquisa_post');
-        
+        $from = $request->input('from');
+
         $tipopesquisa = 'posts_titulo';
         $like = $posts_input;
 
-        $posts_pesquisar = Posts::where($tipopesquisa, 'like', '%'.$like.'%') ->orderBy($tipopesquisa) -> paginate(5);
         $total = Posts::where($tipopesquisa, 'like', '%'.$like.'%') ->orderBy($tipopesquisa) -> get() -> count();
+        $posts_pesquisar = Posts::where($tipopesquisa, 'like', '%'.$like.'%') ->orderBy($tipopesquisa) -> paginate(50);
 
-        return view('blog.listaposts', ['posts' => $posts_pesquisar, 'total' => $total] );
+        if($from == "principal"){
+            $footer = Footer::get();
+            return view('pesquisa', ['posts' => $posts_pesquisar, 'total' => $total, 'footers' => $footer]);
+        }else{
+            return view('blog.listaposts', ['posts' => $posts_pesquisar, 'total' => $total] );
+        }
+        
     }
 
 

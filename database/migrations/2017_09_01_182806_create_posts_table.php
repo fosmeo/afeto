@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('posts_titulo');
             $table->text('posts_texto');
             $table->string('posts_imagem') -> nullable();
-            $table->string('posts_videos') -> nullable();
+            $table->string('posts_video') -> nullable();
             $table->integer('posts_total_comments');
             $table->rememberToken();
             $table->timestamps();

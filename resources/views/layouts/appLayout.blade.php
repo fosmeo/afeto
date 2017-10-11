@@ -42,9 +42,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('simplepage/main') }}">Nossa História</a></li>
+                        <li><a href="{{ url('post/main') }}">Nossa História</a></li>
                         <li><a href="{{ url('galeria') }}">Galeria de fotos</a></li>
-                        <li><a href="{{ url('simplepage/colabore') }}">Colabore com o Projeto</a></li>
+                        <li><a href="{{ url('post/colabore') }}">Colabore com o Projeto</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

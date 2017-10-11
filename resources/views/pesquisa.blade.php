@@ -16,7 +16,7 @@
                         <h3><strong>Resultados da Pesquisa</strong></h3>
                         <br>
                         @foreach($posts as $post)
-                            <p>{{ date_format($post -> created_at, 'd/m/Y') }} - <a href="{{ url('simplepage/'.$post -> id) }}">{{ $post -> posts_titulo }}</a></p>
+                            <p>{{ date_format($post -> created_at, 'd/m/Y') }} - <a href="{{ url('post/'.$post -> id) }}">{{ $post -> posts_titulo }}</a></p>
                         @endforeach
                     </div>
                 </div>

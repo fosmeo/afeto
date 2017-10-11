@@ -15,8 +15,7 @@
                     <div class="principal-borda">
                         <h4><strong>{{$principal -> principal_titulo }}</strong></h4>
                         <p>{!! nl2br($principal -> principal_texto) !!}</p>
-                        <br>
-                        <a href="{{ url('simplepage/main') }}"><u>Saiba Mais</u></a>
+                        <a href="{{ url('post/main') }}"><u>Saiba Mais</u></a>
                     </div>
                 </div>
             @endif
@@ -34,13 +33,13 @@
                         <table>
                             <tr>
                                 <td class="post-data">
-                                    {{ date_format($post -> created_at, 'd') }}
-                                    <br>
-                                    {{ date_format($post -> created_at, 'M') }}
-                                    <br>
+                                    <span>{{ date_format($post -> created_at, 'd') }}</span>
+                                    
+                                    <span>{{ date_format($post -> created_at, 'M') }}</span>
+                                    
                                     {{ date_format($post -> created_at, 'Y') }}
                                 </td>
-                                <td class="post-titulo">{{ $post -> posts_titulo }}</td>
+                                <td class="post-titulo"><a href="{{ url('post/'.$post -> id) }}">{{ nl2br($post -> posts_titulo) }}</a></td>
                             </tr>
                         </table>
                     </div>
@@ -128,7 +127,7 @@
                     <br><br>
                     <ul>
                         @foreach($maiscomentados as $maiscomentado)
-                            <a href="{{url('simplepage/'.$maiscomentado -> posts_id)}}">{{ $maiscomentado -> posts_titulo . '(' . $maiscomentado -> contador .')'}}</a><br><br>
+                            <a href="{{url('post/'.$maiscomentado -> posts_id)}}">{{ $maiscomentado -> posts_titulo . '(' . $maiscomentado -> contador .')'}}</a><br><br>
                         @endforeach
                     </ul>
                 </div>

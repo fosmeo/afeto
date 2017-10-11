@@ -45,7 +45,7 @@ class GaleriaController extends Controller
 		}
 		
 		$galeria_imagens = Galeria::orderBy('id','DESC') -> get();		
-		return view('galeria.gerenciador_galeria', ['galerias' => $galeria_imagens]);
+		return redirect() -> route('formulario_galeria_gerenciador');
 
     }
 

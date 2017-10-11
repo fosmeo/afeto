@@ -1,6 +1,6 @@
 html, body {
     background-image: url('../imagens/bg10.jpg');
-    color:#000;
+    color:#2a2f31;
     font-size: 16px;
     font-family: 'Helvetica', sans-serif;
     font-weight: 300;
@@ -84,17 +84,27 @@ html, body {
     background-color: #7e1d6c;
     text-align: center;
     padding:10px;
+    border-radius: 7px 0px 0px 0px;
+    -webkit-border-radius: 7px 0px 0px 0px;
+    -moz-border-radius: 7px 0px 0px 0px;
 
 }
+
+
 .post-titulo{
     font-size: 22px;
     background-color: #410449;
     padding:20px;
     width:100%;
+    border-radius: 0px 7px 0px 0px;
+    -webkit-border-radius: 0px 7px 0px 0px;
+    -moz-border-radius: 0px 7px 0px 0px;
 }
 
-.area-posts-texto p{
-
+.post-titulo a{
+    text-decoration: none;
+    color:#fff;
+    word-wrap: break-word;
 }
 
 .area-comments{
@@ -220,10 +230,12 @@ border-color: #7e1d6c;
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
-
-    /*box-shadow: 1px 1px 40px #410449;
+/*    box-shadow: 1px 1px 40px #410449;
     box-shadow: 1px 1px 40px #a475ab;
     -webkit-box-shadow: 1px 1px 40px #a475ab;
-    -moz-box-shadow: 1px 1px 40px #a475ab;
+    -moz-box-shadow: 1px 1px 40px #a475ab;*/
+}
 
+.principal-borda p{
+    font-size: 14px;
 }

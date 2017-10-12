@@ -16,7 +16,7 @@ Route::Auth();
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('gerenciador', 'HomeController@gerenciador')->name('gerenciador');
-Route::get('post/{id}', 'HomeController@simplepage')->name('post');
+Route::get('post/{id}', 'HomeController@post')->name('post');
 Route::post('{id}', 'CommentsController@salvar')->name('salvar_comments');
 Route::get('{from}/recalcular_comments', 'HomeController@recalcular') -> name ('recalcular');
 Route::get('galeria', 'GaleriaController@index') -> name ('galeria');

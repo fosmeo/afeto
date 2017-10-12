@@ -24,7 +24,7 @@ class HomeController extends Controller
 
     }
 
-    public function simplepage($id)
+    public function post($id)
     {
         if ($id == "main"){
             $destaque = Destaque::get();

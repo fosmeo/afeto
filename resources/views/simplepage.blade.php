@@ -33,7 +33,7 @@
                     <div>
                         @if(!empty($post -> posts_imagem))
                             <div class="text-center col-md-12">
-                                <img style="border:0px solid #ccc;" src="{{asset('storage/posts_imagens/'.$post -> posts_imagem)}}" >
+                                <img style="border:0px solid #ccc;" src="{{ '/imagens/imagens_posts/'.$post -> posts_imagem }}" >
                             </div>
 
                         @elseif(!empty($post -> posts_video))

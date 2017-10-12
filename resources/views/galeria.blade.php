@@ -18,7 +18,7 @@
                     @foreach($galerias as $galeria)
                         <div class="col-md-4">
                             <div class="thumbnail" style="margin:5px">
-                                    <img class="" style="min-height:300px;" src="{{ asset('storage/galeria_imagens/'.$galeria -> galeria_imagem) }}" alt="">
+                                    <img class="" style="min-height:300px;" src="{{'/imagens/imagens_galeria/'.$galeria -> galeria_imagem }}" alt="">
                                     <div class="caption">
                                         <p class="galeria-descricao">{{$galeria -> galeria_descricao}}</p>
                                     </div>
@@ -28,6 +28,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div style="text-align: center">
+        {{ $galerias -> links() }}
     </div>
 
     <div style="text-align: center;padding:30px 0px 30px 0px"">

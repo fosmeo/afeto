@@ -39,7 +39,7 @@
                         @else
                             <div class="text-center pull-right col-md-4">
                                 <a href="excluir_foto_pessoas" onclick="return confirm('Tem certeza que deseja excluir essa FOTO?')">
-                                    <img style="height:220px;width:210px;border:3px solid #ccc;" src="{{asset('storage/pessoas_imagens/'.$pessoa_editar_form -> pessoas_imagem)}}" >
+                                    <img style="height:220px;width:210px;border:3px solid #ccc;" src="{{ '/imagens/imagens_pessoas/'.$pessoa_editar_form -> pessoas_imagem }}" >
                                 </a>
                                 <br>
                                 <a href="excluir_foto_pessoas" onclick="return confirm('Tem certeza que deseja excluir essa FOTO?')">Remover Foto</a>

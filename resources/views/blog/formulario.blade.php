@@ -29,7 +29,7 @@
                             </div>
                         @else
                             <div class="text-center pull-right col-md-4">
-                                <img style="height:180px;width:210px;border:3px solid #ccc;" src="{{asset('storage/posts_imagens/'.$posts_editar_form -> posts_imagem)}}" >
+                                <img style="height:180px;width:210px;border:3px solid #ccc;" src="{{ '/imagens/imagens_posts/'.$posts_editar_form -> posts_imagem }}" >
                                 <br>
                                 <a href="excluir_foto_posts" onclick="return confirm('Tem certeza que deseja excluir essa FOTO?')">Remover Foto</a>
                             </div>

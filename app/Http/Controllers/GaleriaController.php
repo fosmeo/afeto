@@ -11,7 +11,7 @@ class GaleriaController extends Controller
 {
 
 	function index(){
-		$galeria_imagens = Galeria::orderBy('id', 'DESC') -> get();
+		$galeria_imagens = Galeria::orderBy('id', 'DESC') -> paginate(8);
 		$footer = Footer::get();
     	return view('galeria', ['galerias' => $galeria_imagens, 'footers' => $footer]);
 	}
@@ -38,13 +38,13 @@ class GaleriaController extends Controller
 		{
 			$extensao = $request -> galeria_imagem -> getClientOriginalExtension();
 			$nome_imagem = time().'.'.$extensao;
-			$request-> galeria_imagem -> storeAs('galeria_imagens/', $nome_imagem);
+			$request-> galeria_imagem -> storeAs('imagens_galeria/', $nome_imagem);
 			$temp = $request -> galeria_imagem -> getPathname();
 			$galeria_salvar = Galeria::where('galeria_imagem', 'like', $temp);
 			$galeria_salvar -> update(['galeria_imagem' => $nome_imagem]);
 		}
 		
-		$galeria_imagens = Galeria::orderBy('id','DESC') -> get();		
+		$galeria_imagens = Galeria::orderBy('id','DESC') -> get();
 		return redirect() -> route('formulario_galeria_gerenciador');
 
     }
@@ -52,7 +52,7 @@ class GaleriaController extends Controller
     function excluir_foto($id){
         $galeria_excluir_foto = Galeria::findorfail($id);
         $galeria_excluir_foto -> delete();
-        File::delete(storage_path('app/public').'/galeria_imagens/'.$galeria_excluir_foto -> galeria_imagem);        
+        File::delete('imagens/imagens_galeria/'.$galeria_excluir_foto -> galeria_imagem);
         \Session::flash('flashmsg', 'Foto Removida com Sucesso');
         return redirect() -> route('formulario_galeria_gerenciador');
     }

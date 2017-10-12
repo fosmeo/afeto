@@ -56,7 +56,7 @@ class PessoasController extends Controller
 		{
 			$extensao = $request -> pessoas_imagem -> getClientOriginalExtension();
 			$nome_imagem = time().'.'.$extensao;
-			$request-> pessoas_imagem -> storeAs('pessoas_imagens/', $nome_imagem);
+			$request-> pessoas_imagem -> storeAs('imagens_pessoas/', $nome_imagem);
 			$temp = $request -> pessoas_imagem -> getPathname();
 			$pessoas_salvar = Pessoas::where('pessoas_imagem', 'like', $temp) ;
 			$pessoas_salvar -> update(['pessoas_imagem' => $nome_imagem]);
@@ -85,13 +85,13 @@ class PessoasController extends Controller
 		{
 			if(!is_null($pessoa_atualizar -> pessoas_imagem))
 			{
-				File::delete(storage_path('app/public').'/pessoas_imagens/'.$pessoa_atualizar -> pessoas_imagem);
+				File::delete(storage_path('imagens/imagens_pessoas/'.$pessoa_atualizar -> pessoas_imagem));
 			}
 
 			$extensao = $request -> pessoas_imagem -> getClientOriginalExtension();
 			$nome_imagem = time().'.'.$extensao;
 			
-			$request-> pessoas_imagem -> storeAs('pessoas_imagens/', $nome_imagem);
+			$request-> pessoas_imagem -> storeAs('imagens_pessoas/', $nome_imagem);
 			$temp = $request -> pessoas_imagem -> getPathname();
 
 			$pessoa_atualizar -> update($request -> all());
@@ -111,7 +111,7 @@ class PessoasController extends Controller
 	function excluir($id){
 		$pessoa_excluir = Pessoas::findorfail($id);
 		$pessoa_excluir -> delete();
-		File::delete(storage_path('app/public').'/pessoas_imagens/'.$pessoa_excluir -> pessoas_imagem);
+		File::delete(storage_path('imagens/imagens_pessoas/'.$pessoa_excluir -> pessoas_imagem));
 		\Session::flash('flashmsg', 'Cliente Excluido com Sucesso - ');
 		\Session::flash('msg_nome', $pessoa_excluir -> pessoas_nome);
 		return redirect() -> route('lista_pessoas');
@@ -120,7 +120,7 @@ class PessoasController extends Controller
 
 	function excluir_foto($id){
 		$pessoa_excluir_foto = Pessoas::findorfail($id);
-		File::delete(storage_path('app/public').'/pessoas_imagens/'.$pessoa_excluir_foto -> pessoas_imagem);
+		File::delete(storage_path('imagens/imagens_pessoas/'.$pessoa_excluir_foto -> pessoas_imagem));
 		$pessoa_excluir_foto -> update(['pessoas_imagem' => '']);
 		\Session::flash('flashmsg', 'Foto Removida com Sucesso');
 		return redirect() -> route('lista_pessoas');

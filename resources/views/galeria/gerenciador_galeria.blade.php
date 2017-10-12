@@ -55,7 +55,7 @@
 
                             <a href="{{ $galeria->id }}/excluir_galeria" onclick="return confirm('Tem certeza que deseja excluir essa FOTO?')" value="excluir">Excluir</a>
 
-                            <img class="" style="min-height:300px;" src="{{ asset('storage/galeria_imagens/'.$galeria -> galeria_imagem) }}" alt="">
+                            <img class="" style="min-height:300px;" src="{{ '/imagens/imagens_galeria/'.$galeria -> galeria_imagem }}" alt="">
                             
                             <div class="caption">
                                 <p style="font-size: 12px">{{$galeria -> galeria_descricao}}<p>
